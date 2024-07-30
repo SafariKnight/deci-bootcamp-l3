@@ -32,7 +32,7 @@ body {
 }
 
 .question__form {
-  width: 80%;
+  width: clamp(20rem, 80%, 80ch);
   margin-inline: auto;
   display: flex;
   flex-direction: column;
@@ -42,12 +42,15 @@ body {
 
 .question__list {
   --flow-spacer: 2em;
+  background-color: var(--background-alternate);
+  max-width: 100%;
 }
 
 .question__box {
   background-color: var(--background);
   display: grid;
   padding: 3rem;
+  margin-inline: 1rem;
   grid-template-areas:
     "nm nm"
     "q1 q2";
@@ -59,6 +62,14 @@ body {
   div:has(input:checked) {
     font-weight: 500
   }
+}
+
+@media (width <= 475px) {
+  .question__box {
+    width: max(10rem, 80%);
+    margin: var(--flow-spacer) auto;
+    padding: 1rem;
+  }  
 }
 
 .question__title {

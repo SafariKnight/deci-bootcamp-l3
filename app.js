@@ -65,5 +65,5 @@ document.querySelector(".question__form").addEventListener("submit", (e) => {
   e.preventDefault();
   const stressLevel = getStressLevel()
   if (stressLevel === undefined) return;
-  alert(`Your Stress Level is ${stressLevel}`)
+  alert(`Your Stress Level is ${stressLevel}/${questions.length}`)
 })
