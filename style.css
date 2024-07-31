@@ -1,81 +1,88 @@
-:root {
-  --background: oklch(97.33% 0.007 166.02);
-  --background-alternate: oklch(6% 0.007 166.02);
+@import url(global.css);
+
+.welcome-slide {
+  background-color: var(--welcome-background);
+  color: var(--welcome-text-color);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: fixed; /* Fix to viewport */
+  top: 60px; /* Adjust for header height */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px); /* Adjust for header height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it's above other content */
 }
 
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.welcome-slide-button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: #4a90e2; /* Calm blue button */
+  color: #ffffff; /* White text for contrast */
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
 }
 
-body {
-  background-color: var(--background);
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
+.welcome-slide-button:hover {
+  background-color: #357abd; /* Slightly darker blue for hover effect */
 }
 
-.flow>*+* {
-  --flow-spacer: 1em;
-  margin-top: var(--flow-spacer, 1em);
+/* Initially hide the questions form */
+.hidden {
+  display: none;
 }
 
 .question__form {
-  width: clamp(20rem, 80%, 80ch);
+  width: 80%;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--background-alternate);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  margin-top: 70px; /* Adjust for header height */
 }
 
 .question__list {
   --flow-spacer: 2em;
-  background-color: var(--background-alternate);
-  max-width: 100%;
 }
 
 .question__box {
   background-color: var(--background);
   display: grid;
-  padding: 3rem;
-  margin-inline: 1rem;
+  padding: 2rem;
   grid-template-areas:
     "nm nm"
-    "q1 q2";
+    "q1 nn"
+    "q2 nn";
   justify-items: center;
   --flow-spacer: inherit;
-  border: 3px solid black;
-
-  div:hover,
-  div:has(input:checked) {
-    font-weight: 500
-  }
+  border: 2px solid #2c2c2c; /* Dark border to match the dark theme */
+  border-radius: 8px;
 }
 
-@media (width <= 475px) {
-  .question__box {
-    width: max(10rem, 80%);
-    margin: var(--flow-spacer) auto;
-    padding: 1rem;
-  }  
+.question__yes {
+  grid-area: q1;
+}
+
+.question__no {
+  grid-area: q2 ;
 }
 
 .question__title {
   grid-area: nm;
   max-width: 30ch;
   text-align: center;
+  color: var(--footer-text-color); /* Light text color for contrast */
 }
 
 .question__submit {
@@ -83,7 +90,12 @@ body {
   border: none;
   padding: 0.5rem;
   border-radius: 1rem;
-
   margin-block: 1rem;
+  background-color: #4a90e2; /* Calm blue button */
+  color: #ffffff; /* White text for contrast */
+  cursor: pointer;
 }
 
+.question__submit:hover {
+  background-color: #357abd; /* Slightly darker blue for hover effect */
+}
