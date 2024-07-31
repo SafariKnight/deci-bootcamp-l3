@@ -1,0 +1,89 @@
+:root {
+    --background: #1e1e1e; /* Very dark gray */
+    --background-alternate: #2c2c2c; /* Slightly lighter dark gray */
+    --footer-background: #121212; /* Almost black */
+    --footer-text-color: #b0b0b0; /* Soft gray for text */
+    --footer-link-color: #4a90e2; /* Calm blue */
+    --footer-link-hover-color: #357abd; /* Slightly darker blue */
+    --header-background: #1c1c1c; /* Slightly lighter dark gray for header */
+    --header-text-color: #ffffff; /* White text for header */
+    --welcome-background: #2c3e50; /* Dark slate blue for welcome slide */
+    --welcome-text-color: #ecf0f1; /* Light gray text for welcome slide */
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: var(--background);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+    color: var(--footer-text-color); /* Light gray text for readability */
+  }
+  
+.site-header {
+    background-color: var(--header-background);
+    color: var(--header-text-color);
+    padding: 1rem;
+    text-align: center;
+    position: sticky; /* Fix header to the top of the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure header is above other content */
+  }
+  
+  .site-header h1 {
+    margin: 0;
+  }
+    
+  /* Footer Styles */
+.site-footer {
+    background-color: var(--footer-background);
+    color: var(--footer-text-color);
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Spacing between links */
+  }
+  
+  .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .footer-nav li {
+    margin: 0;
+  }
+  
+  .footer-nav a {
+    color: var(--footer-link-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  }
+  
+  .footer-nav a:hover {
+    color: var(--footer-link-hover-color);
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle hover effect */
+  }
